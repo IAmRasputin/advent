@@ -21,3 +21,15 @@
                        (find-sum others target))))))
       (find-sum nums target))))
 
+;; The same thing, but with three.
+;; Yeah, I'm using a library to enumerate k-combinations.  Fight me.
+(defun day-1-part-2 ()
+  (let ((nums (ints-from-file *day-1-input*))
+        (target 2020)
+        answer)
+    (alexandria:map-combinations (lambda (args)
+                                   (if (= (apply #'+ args) target)
+                                       (setf answer (apply #'* args))))
+                                 nums
+                                 :length 3)
+    answer))
