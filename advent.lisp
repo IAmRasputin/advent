@@ -2,7 +2,7 @@
 
 (in-package #:advent)
 
-(defvar *day-1-input* "~/other/Lisp/advent/input/day1.txt")
+(defvar *day-1-input* "input/day1.txt")
 
 (defun ints-from-file (file)
   (mapcar #'parse-integer (uiop:read-file-lines file)))
