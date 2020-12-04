@@ -10,4 +10,4 @@
 
 (defpackage #:day-3
   (:use #:cl)
-  (:export #:part-1))
+  (:export #:part-1 #:part-2))

@@ -22,10 +22,9 @@
         (char row (mod col-index (length row))))
       (error "Load the map first, ya dingus")))
 
-(defun part-1 ()
+(defun trees-with-slope (slope)
   (let ((row 0)
         (col 0)
-        (slope '(1 3))
         (tree-count 0))
     (load-map *input*)
     (while (> (length *map*) row)
@@ -35,4 +34,10 @@
       (incf col (cadr slope)))
     tree-count))
 
-(part-1)
+(defun part-1 ()
+  (trees-with-slope '(1 3)))
+
+(defun part-2 ()
+  (apply #'*
+         (mapcar #'trees-with-slope
+                 '((1 1) (1 3) (1 5) (1 7) (2 1)))))
