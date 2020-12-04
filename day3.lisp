@@ -11,17 +11,16 @@
      ,@body))
 
 (defun load-map (file)
-  (setf *map* (let ((lines (uiop:with-safe-io-syntax ()
-                             (uiop:read-file-lines *input*))))
-                lines)))
+  (unless *map*
+    (setf *map* (let ((lines (uiop:with-safe-io-syntax ()
+                               (uiop:read-file-lines *input*))))
+                  lines))))
 
 (defun tile-at (row-index col-index)
   (if *map*
       (let ((row (nth row-index *map*)))
         (char row (mod col-index (length row))))
-      (progn
-        (load-map *input*)
-        (tile-at row-index col-index))))
+      (error "Load the map first, ya dingus")))
 
 (defun part-1 ()
   (let ((row 0)
