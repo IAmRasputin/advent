@@ -16,7 +16,8 @@
       (and clause-y (not clause-x))))
 
 (defun passwords-from-input (file)
-  (mapcar #'parse-password (uiop:read-file-lines file)))
+  (mapcar #'parse-password (uiop:with-safe-io-syntax ()
+                             (uiop:read-file-lines file))))
 
 (defun valid-password-p (pass)
   (destructuring-bind ((min max) char str) pass

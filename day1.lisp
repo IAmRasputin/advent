@@ -5,7 +5,8 @@
 (defvar *input* "input/day1.txt")
 
 (defun ints-from-file (file)
-  (mapcar #'parse-integer (uiop:read-file-lines file)))
+  (mapcar #'parse-integer (uiop:with-safe-io-syntax ()
+                            (uiop:read-file-lines file))))
 
 ;; Open day1.txt, find the two numbers whose sum is 2020, and multiply them.
 (defun part-1 ()
