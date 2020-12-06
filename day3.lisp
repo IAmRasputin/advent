@@ -4,16 +4,9 @@
 
 (defvar *map*)
 
-;; Absolutely wild that this isn't in the standard, if you ask me
-(defmacro while (pred &body body)
-  `(do ()
-       ((not ,pred))
-     ,@body))
-
 (defun load-map (file)
   (unless *map*
-    (setf *map* (let ((lines (uiop:with-safe-io-syntax ()
-                               (uiop:read-file-lines *input*))))
+    (setf *map* (let ((lines (read-lines *file*)))
                   lines))))
 
 (defun tile-at (row-index col-index)

@@ -8,5 +8,8 @@
   :serial t
   :depends-on (#:alexandria)
   :components ((:file "package")
+               (:file "utils")
                (:file "day1")
-               (:file "day2")))
+               (:file "day2")
+               (:file "day3")
+               (:file "day4")))
