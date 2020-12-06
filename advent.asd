@@ -6,10 +6,12 @@
   :license  "MIT"
   :version "0.0.1"
   :serial t
-  :depends-on (#:alexandria)
+  :depends-on (#:alexandria #:bit-smasher)
   :components ((:file "package")
                (:file "utils")
                (:file "day1")
                (:file "day2")
                (:file "day3")
-               (:file "day4")))
+               (:file "day4")
+               (:file "day5")
+               (:file "day6")))

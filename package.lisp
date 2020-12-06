@@ -20,3 +20,11 @@
   (:use #:cl #:advent-utils #:cl-ppcre)
   (:export #:part-1 #:part-2))
 
+(defpackage #:day-5
+  (:use #:cl #:advent-utils #:bit-smasher)
+  (:export #:part-1 #:part-2))
+
+(defpackage #:day-6
+  (:use #:cl #:advent-utils #:cl-ppcre)
+  (:export #:part-1 #:part-2))
+
