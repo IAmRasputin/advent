@@ -20,10 +20,10 @@
          (key (read-from-string (format nil "~a-~a" (first stripped) (second stripped))))
          (contents (group (nthcdr 2 stripped) 3))
          (parsed-contents (mapcar (lambda (c)
-                                    (cons (read-from-string (format nil "~a-~a" (second c) (third c)))
+                                    (list (read-from-string (format nil "~a-~a" (second c) (third c)))
                                           (read-from-string (first c))))
                                   contents)))
-    `(,key . ,@parsed-contents)))
+    `(,key ,@parsed-contents)))
 
 (defun load-rules (file)
   (let ((rules (mapcar #'parse-rule (read-lines file)))
@@ -32,7 +32,7 @@
       (setf (gethash (car rule) table) (cdr rule)))))
 
 
-(defvar *rules* (load-rules *input*))
+(defparameter *rules* (load-rules *input*))
 
 ;; Does candidate contain query?  If candidate == query => NIL
 (defun contains (candidate query)
@@ -44,6 +44,8 @@
                 (contains (car c) query))
               (gethash candidate *rules*)))))
 
+(gethash 'shiny-gold *rules*)
+
 ;; Starting at ROOT in *rules*, what's the sum of all contained bags, recursively?
 (defun bag-sum (root)
   (let ((contents (gethash root *rules*)))
@@ -53,7 +55,7 @@
                (mapcar (lambda (sub-bag)
                          (let ((color (first sub-bag))
                                (num (second sub-bag)))
-                           (1+ (* num (bag-sum color)))))
+                           (+ num (* num (bag-sum color)))))
                        contents)))))
 
 (defun part-1 ()
