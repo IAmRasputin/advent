@@ -43,3 +43,7 @@
 (defpackage #:day-10
   (:use #:cl #:advent-utils #:cl-ppcre)
   (:export #:part-1 #:part-2))
+
+(defpackage #:day-11
+  (:use #:cl #:advent-utils #:cl-ppcre)
+  (:export #:part-1 #:part-2))
