@@ -120,7 +120,10 @@
 
 (defun left-from (seat-map row col)
   (cdr (loop for col-index from col downto 0
-             collect (seat seat-map row col))))
+             collect (seat seat-map row col-index))))
+
+(let ((seats *test-map*))
+  (left-from seats 0 1))
 
 (defun upleft-from (seat-map row col)
   (cdr (loop for row-index from row downto 0
@@ -137,8 +140,6 @@
     (down-left (downleft-from seat-map row col))
     (left (left-from seat-map row col))
     (up-left (upleft-from seat-map row col))))
-
-(in-direction *test-map* 9 9 'up-left)
 
 (defun first-seat (view)
   (car (remove 'floor view)))
@@ -175,5 +176,3 @@
 
 (defun part-2 (&optional (seat-map *seat-map*))
   (stabilize-2 seat-map))
-
-(part-2)
