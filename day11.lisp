@@ -122,9 +122,6 @@
   (cdr (loop for col-index from col downto 0
              collect (seat seat-map row col-index))))
 
-(let ((seats *test-map*))
-  (left-from seats 0 1))
-
 (defun upleft-from (seat-map row col)
   (cdr (loop for row-index from row downto 0
              for col-index from col downto 0
@@ -159,10 +156,8 @@
   (if (eq 'floor (seat seat-map row col))
       'floor
       (let ((seen (in-view seat-map row col)))
-        (format t "Seen: ~A~%~%" seen)
         (cond
-          ((<= 5 (count 'taken seen)) (progn 
-                                        'empty)
+          ((<= 5 (count 'taken seen)) 'empty)
           ((zerop (count 'taken seen)) 'taken)
           (t (seat seat-map row col))))))
 
