@@ -138,8 +138,6 @@
     (left (left-from seat-map row col))
     (up-left (upleft-from seat-map row col))))
 
-(in-direction *test-map* 9 9 'up-left)
-
 (defun first-seat (view)
   (car (remove 'floor view)))
 
@@ -158,8 +156,10 @@
   (if (eq 'floor (seat seat-map row col))
       'floor
       (let ((seen (in-view seat-map row col)))
+        (format t "Seen: ~A~%~%" seen)
         (cond
-          ((<= 5 (count 'taken seen)) 'empty)
+          ((<= 5 (count 'taken seen)) (progn 
+                                        'empty)
           ((zerop (count 'taken seen)) 'taken)
           (t (seat seat-map row col))))))
 
@@ -169,11 +169,10 @@
               (spot-after seat-map row col))))
 
 (defun stabilize-2 (seat-map)
-  (do* ((current seat-map (next-2 current))
-        (after (next-2 current) (next-2 after)))
-      ((equal current after) (seats-taken current))))
+  (do* ((current seat-map after)
+        (after (next-2 current) (next-2 current)))
+      ((equal current after) (seats-taken current))
+    (format t "~A~%~%" current)))
 
 (defun part-2 (&optional (seat-map *seat-map*))
   (stabilize-2 seat-map))
-
-(part-2)
