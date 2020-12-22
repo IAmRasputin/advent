@@ -16,6 +16,8 @@
 (defun load-seat-map (file)
   (setf *seat-map* (mapcar #'parse-line (read-lines file))))
 
+(defparameter *test-map* (mapcar #'parse-line (read-lines "input/day11-test.txt")))
+
 (load-seat-map *input*)
 
 (defun seat (seat-map row col)
@@ -90,13 +92,13 @@
 ;; Part 2
 
 (defun up-from (seat-map row col)
-  (loop for row-index from row downto 0 
-        collect (seat seat-map row-index col)))
+  (cdr (loop for row-index from row downto 0 
+             collect (seat seat-map row-index col))))
 
 (defun upright-from (seat-map row col)
-  (loop for row-index from row downto 0
-        for col-index from col below (length (car seat-map))
-        collect (seat seat-map row-index col-index)))
+  (cdr (loop for row-index from row downto 0
+             for col-index from col below (length (car seat-map))
+             collect (seat seat-map row-index col-index))))
 
 (defun right-from (seat-map row col)
   (cdr (loop for col-index from col below (length (car seat-map))
@@ -136,6 +138,8 @@
     (left (left-from seat-map row col))
     (up-left (upleft-from seat-map row col))))
 
+(in-direction *test-map* 9 9 'up-left)
+
 (defun first-seat (view)
   (car (remove 'floor view)))
 
@@ -165,11 +169,11 @@
               (spot-after seat-map row col))))
 
 (defun stabilize-2 (seat-map)
-  (do* ((current seat-map after)
+  (do* ((current seat-map (next-2 current))
         (after (next-2 current) (next-2 after)))
       ((equal current after) (seats-taken current))))
 
-(defun day-2 ()
-  (stabilize-2 *seat-map*))
+(defun part-2 (&optional (seat-map *seat-map*))
+  (stabilize-2 seat-map))
 
-(day-2) ;; too low?
+(part-2)
