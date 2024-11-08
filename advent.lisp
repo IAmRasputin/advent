@@ -16,13 +16,13 @@
 (in-package #:advent)
 
 (defun usage ()
-  (format t "No args yet!~%"))
+  (format t "No!~%"))
 
 (defun hello ()
   (format t "You passed: ~s~%" uiop:*command-line-arguments*))
 
 (defun main ()
-  (cond
-    ((null uiop:*command-line-arguments*) (usage))
-    (t (hello))))
-
+  (let ((args uiop:*command-line-arguments*)
+        (ui (adopt:make-interface :name "advent"
+                                  :summary "advent of code tools and stuff"
+                                  )))))

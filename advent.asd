@@ -2,7 +2,7 @@
 
 (asdf:defsystem #:advent
   :description "Advent of Code helper functions"
-  :author "Ryan Gannon <ryanmgannon.dev@gmail.com>"
+  :author "Ryan Gannon <ryanmgannon@gmail.com>"
   :license  "GPLv3"
   :version "0.0.1"
   :serial t
