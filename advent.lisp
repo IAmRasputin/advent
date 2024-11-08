@@ -19,7 +19,7 @@
   (format t "No args yet!~%"))
 
 (defun hello ()
-  (format t "You passed args!~%"))
+  (format t "You passed: ~s~%" uiop:*command-line-arguments*))
 
 (defun main ()
   (cond
