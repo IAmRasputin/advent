@@ -1,0 +1,16 @@
+vom, ghcr.io/ocicl/vom@sha256:f8c3898b00ba064be339b7e0e0407aa7a0e6f029017ba63dcd5ada7816a7b87c, vom-20240815-303c3f6/vom.asd
+swank, ghcr.io/ocicl/swank@sha256:1e634a3bf205e76372dfc4a789d42575195718180a3551536ef0e2c20caa5002, slime-2.30/swank.asd
+adopt, ghcr.io/ocicl/adopt@sha256:129b66dd5e675fc157f8134277c49ec43eaf3269a13979ff1be1522e143e4588, adopt-20240613-2b340c4/adopt.asd
+cl_plus_ssl.test, ghcr.io/ocicl/cl_plus_ssl@sha256:acb61e8e4d3efcb23f4d86405ad22fdca2d685268c664735c962646a09706ab6, cl-plus-ssl-20240505-17d5cdd/cl+ssl.test.asd
+cl_plus_ssl, ghcr.io/ocicl/cl_plus_ssl@sha256:acb61e8e4d3efcb23f4d86405ad22fdca2d685268c664735c962646a09706ab6, cl-plus-ssl-20240505-17d5cdd/cl+ssl.asd
+uffi, ghcr.io/ocicl/cffi@sha256:fe1246d11c4c067daefdb143e1252e0f3e99046909185d2c920adb8323318742, cffi-20240811-32c90d4/uffi-compat/uffi.asd
+cffi, ghcr.io/ocicl/cffi@sha256:fe1246d11c4c067daefdb143e1252e0f3e99046909185d2c920adb8323318742, cffi-20240811-32c90d4/cffi.asd
+cffi-uffi-compat, ghcr.io/ocicl/cffi@sha256:fe1246d11c4c067daefdb143e1252e0f3e99046909185d2c920adb8323318742, cffi-20240811-32c90d4/cffi-uffi-compat.asd
+cffi-toolchain, ghcr.io/ocicl/cffi@sha256:fe1246d11c4c067daefdb143e1252e0f3e99046909185d2c920adb8323318742, cffi-20240811-32c90d4/cffi-toolchain.asd
+cffi-tests, ghcr.io/ocicl/cffi@sha256:fe1246d11c4c067daefdb143e1252e0f3e99046909185d2c920adb8323318742, cffi-20240811-32c90d4/cffi-tests.asd
+cffi-libffi, ghcr.io/ocicl/cffi@sha256:fe1246d11c4c067daefdb143e1252e0f3e99046909185d2c920adb8323318742, cffi-20240811-32c90d4/cffi-libffi.asd
+cffi-grovel, ghcr.io/ocicl/cffi@sha256:fe1246d11c4c067daefdb143e1252e0f3e99046909185d2c920adb8323318742, cffi-20240811-32c90d4/cffi-grovel.asd
+cffi-examples, ghcr.io/ocicl/cffi@sha256:fe1246d11c4c067daefdb143e1252e0f3e99046909185d2c920adb8323318742, cffi-20240811-32c90d4/cffi-examples.asd
+babel, ghcr.io/ocicl/babel@sha256:b505136744213e6b953913780a4b647da40e83818a10f41004846863b5037810, babel-20240606-23c1440/babel.asd
+babel-tests, ghcr.io/ocicl/babel@sha256:b505136744213e6b953913780a4b647da40e83818a10f41004846863b5037810, babel-20240606-23c1440/babel-tests.asd
+babel-streams, ghcr.io/ocicl/babel@sha256:b505136744213e6b953913780a4b647da40e83818a10f41004846863b5037810, babel-20240606-23c1440/babel-streams.asd
