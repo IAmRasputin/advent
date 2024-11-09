@@ -9,6 +9,6 @@
   :build-operation "program-op"
   :build-pathname "advent"
   :entry-point "advent:main"
-  :depends-on ("dexador" "adopt" "plump" "lquery")
+  :depends-on ("dexador" "clingon" "plump" "lquery")
   :components ((:file "package")
                (:file "advent")))
