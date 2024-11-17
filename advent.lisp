@@ -15,28 +15,6 @@
 
 (in-package #:advent)
 
-(defvar *session-token-file* #p"~/.config/advent/token")
-
-(defun advent (cmd)
-  (let ((token-file (or (clingon:getopt cmd :token-file)
-                        *session-token-file*)))
-    (with-open-file (s token-file :if-does-not-exist :error)
-      (format t "~s~%" (read-line s)))))
-
-(defun advent-cli-cmd ()
-  (clingon:make-command
-    :name "advent"
-    :description "do AoC without opening your browser"
-    :version "0.0.1"
-    :options (list
-               (clingon:make-option :filepath
-                                    :short-name #\c
-                                    :long-name "config-file"
-                                    :env-vars '("ADVENT_SESSION_TOKEN_FILE")
-                                    :key :token-file))
-    :handler #'advent))
-
 (defun main ()
-  (let ((app (advent-cli-cmd)))
+  (let ((app (cmd:root-command)))
     (clingon:run app)))
-

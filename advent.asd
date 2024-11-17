@@ -11,4 +11,8 @@
   :entry-point "advent:main"
   :depends-on ("dexador" "clingon" "plump" "lquery")
   :components ((:file "package")
+               (:file "cmd")
+               (:file "util")
+               (:file "api")
+               (:file "input")
                (:file "advent")))
