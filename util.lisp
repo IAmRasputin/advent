@@ -1,17 +1,14 @@
 (in-package :advent/util)
 
-(defvar *session-token-file* #p"~/.config/advent/token")
-(defvar *user-cache-dir* #p"~/.cache/advent/")
-
 (defun cache-path (cache-name path)
   (format nil 
           "~a/~a/~a" 
-          *user-cache-dir* 
+          config:*user-cache-dir*
           (string-downcase (symbol-name cache-name)) 
           path))
 
-(defun load-session-token (path)
-  (with-open-file (s path :if-does-not-exist :error)
+(defun load-session-token ()
+  (with-open-file (s config:*session-token-file* :if-does-not-exist :error)
     (read-line s)))
 
 (defun get-from-cache (cache-name path)

@@ -1,5 +1,4 @@
 ;;;; advent.asd
-
 (asdf:defsystem #:advent
   :description "Advent of Code helper functions"
   :author "Ryan Gannon <ryanmgannon@gmail.com>"
@@ -11,8 +10,10 @@
   :entry-point "advent:main"
   :depends-on ("dexador" "clingon" "plump" "lquery")
   :components ((:file "package")
+               (:file "config")
                (:file "cmd")
                (:file "util")
                (:file "api")
                (:file "input")
+               (:file "prompt")
                (:file "advent")))
