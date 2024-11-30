@@ -1,4 +1,6 @@
-LISP ?= sbcl
+LISP ?= sbcl 
+
+all: build
 
 clean:
 	rm -f ./advent

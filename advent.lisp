@@ -17,6 +17,5 @@
 
 (defun main ()
   (let ((app (cmd:root-command)))
-    (config:set-config nil
-                       nil) ;; TODO: parameterize user cache path
+    (config:set-config) 
     (clingon:run app)))
