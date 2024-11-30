@@ -19,7 +19,7 @@
                       (the-rest (remove-if (lambda (e)
                                              (equal (plump:tag-name e) "h2"))
                                            parts)))
-                 (format nil "~a~%~%~{~a~^~%~}" 
+                 (format nil "~a~%~%~{~a~%~%~}~%" 
                          (plump:text header-element)
                          (map 'list #'plump:text the-rest)))))
       (cond
