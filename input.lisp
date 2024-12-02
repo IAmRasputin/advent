@@ -9,12 +9,10 @@
 
 (defun input/handler (cmd)
   "Get args from the command object here, so the rest of the API is more lispy"
-  (let* ((day (clingon:getopt cmd :day))
-         (year (clingon:getopt cmd :year))
-         (pathstring (format nil "~d/~d" year day))
-         (response (input year day)))
-    (format t "~a" response)
-    response))
+  (let* ((args (clingon:command-arguments cmd))
+         (parsed-date (util:parse-date-args args))
+         (response (input (car parsed-date) (cdr parsed-date))))
+    (format t "~a~%" response)))
 
 (defun input/command ()
   (clingon:make-command

@@ -2,7 +2,7 @@
 (defpackage #:advent/config
   (:use #:cl)
   (:nicknames :config)
-  (:export :set-config :*session-token-file* :*user-cache-dir* :*session-token*))
+  (:export :set-config :get-session-token :*session-token-file*  :*user-cache-dir* :*session-token*))
 
 (defpackage #:advent/cmd
   (:use #:cl)
@@ -12,12 +12,12 @@
 (defpackage #:advent/util
   (:use #:cl)
   (:nicknames :util)
-  (:export :load-session-token :get-from-cache :save-to-cache))
+  (:export :load-session-token :get-from-cache :save-to-cache :most-recent-year-day-part :parse-date-args))
 
 (defpackage #:advent/api
   (:use #:cl)
   (:nicknames :api)
-  (:export #:aoc-get-input #:aoc-get-prompt))
+  (:export #:aoc-get-input #:aoc-get-prompt #:aoc-get-frontpage))
 
 (defpackage #:advent/prompt
   (:use #:cl)

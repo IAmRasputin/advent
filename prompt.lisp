@@ -30,8 +30,10 @@
 
 (defun prompt/handler (cmd)
   ;; TODO: better options parsing
-  (let* ((year (clingon:getopt cmd :year))
-         (day (clingon:getopt cmd :day))
+  (let* ((args (clingon:command-arguments cmd))
+         (date (util:parse-date-args args))
+         (year (car date))
+         (day (cdr date))
          (response (prompt year day)))
     (format t "~{~a~%~}" (bobbin:wrap response 80))
     response))
