@@ -35,7 +35,7 @@
          (year (car date))
          (day (cdr date))
          (response (prompt year day)))
-    (format t "~{~a~%~}" (bobbin:wrap response 80))
+    (format t "~a~%" (bobbin:wrap response 80))
     response))
 
 (defun prompt/command ()
@@ -43,3 +43,5 @@
     :name "prompt"
     :description "get the prompt for a day's puzzle"
     :handler #'prompt/handler))
+
+
