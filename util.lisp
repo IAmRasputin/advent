@@ -13,9 +13,8 @@
 
 (defun get-from-cache (cache-name path)
   (let ((cache (cache-path cache-name path)))
-    (if (uiop:file-exists-p cache)
-        (uiop:read-file-string cache)
-        (format t "file ~a does not exist~%" cache))))   
+    (when (uiop:file-exists-p cache)
+      (uiop:read-file-string cache))))   
 
 (defun save-to-cache (cache-name path data)
   (let ((cache (cache-path cache-name path)))
