@@ -12,7 +12,7 @@
   (let* ((args (clingon:command-arguments cmd))
          (parsed-date (util:parse-date-args args))
          (response (input (car parsed-date) (cdr parsed-date))))
-    (format t "~a~%" response)))
+    (format t "~a" response)))
 
 (defun input/command ()
   (clingon:make-command
